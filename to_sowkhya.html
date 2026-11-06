@@ -1,0 +1,1085 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Sowkhya, Always ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Caveat:wght@500;600&display=swap');
+
+:root {
+  --pink:#f7dce8;
+  --lavender:#e9e0fa;
+  --peach:#fce5d9;
+  --yellow:#fff1c9;
+  --mint:#dcefe4;
+  --blue:#dceafa;
+  --cream:#fffaf5;
+  --ink:#594b60;
+  --muted:#9a8c9d;
+}
+
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'DM Sans',sans-serif;
+}
+button { font:inherit; cursor:pointer; }
+h1,h2,h3 { font-family:'Playfair Display',serif;font-weight:500; }
+section { padding:85px 7%; }
+.hidden { display:none!important; }
+
+.hero {
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:25px;
+  background:
+    radial-gradient(circle at 15% 20%,var(--pink),transparent 38%),
+    radial-gradient(circle at 85% 80%,var(--lavender),transparent 38%),
+    var(--cream);
+}
+.hero-content { max-width:650px; }
+.eyebrow {
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.hero h1 { font-size:clamp(43px,8vw,75px);margin:20px 0; }
+.hero p { line-height:1.8; }
+.cake {
+  font-size:95px;
+  margin:25px;
+  animation:float 3s infinite ease-in-out;
+}
+.candle {
+  display:block;
+  font-size:32px;
+  margin-bottom:-15px;
+  position:relative;
+  z-index:2;
+}
+.flame {
+  color:#ffb54c;
+  animation:flicker .5s infinite alternate;
+  display:inline-block;
+}
+@keyframes float { 50% {transform:translateY(-12px)} }
+@keyframes flicker { to {transform:scale(1.2) rotate(5deg)} }
+
+.btn {
+  border:0;
+  border-radius:30px;
+  background:var(--ink);
+  color:white;
+  padding:14px 27px;
+  margin-top:15px;
+  transition:.25s;
+}
+.btn:hover { transform:translateY(-3px); }
+
+.nav {
+  position:sticky;
+  top:0;
+  z-index:20;
+  padding:14px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#fffaf5ed;
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid #eee5e9;
+}
+.logo { font:23px 'Playfair Display',serif; }
+.nav-links { display:flex;gap:17px; }
+.nav a { color:var(--ink);text-decoration:none;font-size:12px; }
+
+.main { animation:appear .8s; }
+@keyframes appear {
+  from {opacity:0;transform:translateY(15px)}
+  to {opacity:1;transform:translateY(0)}
+}
+.intro {
+  text-align:center;
+  padding:115px 20px;
+  background:linear-gradient(125deg,var(--pink),var(--lavender),var(--blue));
+}
+.intro h1 {font-size:clamp(40px,7vw,68px);margin:20px 0}
+.intro p {line-height:1.8}
+.heading {text-align:center;margin-bottom:45px}
+.heading h2 {font-size:clamp(32px,5vw,48px);margin:15px 0}
+.heading p {color:var(--muted);line-height:1.7}
+
+.cards {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
+  gap:14px;
+  max-width:1100px;
+  margin:auto;
+}
+.flip-card {height:175px;perspective:1000px;cursor:pointer}
+.flip-inner {
+  position:relative;
+  height:100%;
+  transform-style:preserve-3d;
+  transition:transform .65s;
+}
+.flip-card.flipped .flip-inner {transform:rotateY(180deg)}
+.flip-front,.flip-back {
+  position:absolute;
+  inset:0;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  padding:15px;
+  text-align:center;
+  backface-visibility:hidden;
+}
+.flip-front {
+  font:36px 'Playfair Display',serif;
+  border:1px solid #ffffff70;
+}
+.flip-front small {
+  font:10px 'DM Sans',sans-serif;
+  letter-spacing:1px;
+  margin-top:10px;
+}
+.flip-back {
+  transform:rotateY(180deg);
+  background:white;
+  border:1px solid #eee4ea;
+  font-size:13px;
+  line-height:1.6;
+}
+.flip-back span {font-size:21px;margin-bottom:8px}
+.pink {background:var(--pink)}
+.lavender {background:var(--lavender)}
+.peach {background:var(--peach)}
+.yellow {background:var(--yellow)}
+.mint {background:var(--mint)}
+.blue {background:var(--blue)}
+
+.progress {
+  height:7px;
+  background:#eee5e9;
+  border-radius:20px;
+  overflow:hidden;
+  max-width:450px;
+  margin:25px auto 8px;
+}
+.fill {height:100%;width:0;background:#c89dbb;transition:.3s}
+.counter {font-size:12px;color:var(--muted)}
+
+.divider {
+  text-align:center;
+  padding:25px;
+  color:#d3a5bf;
+  letter-spacing:12px;
+  font-size:22px;
+}
+
+/* TIMELINE */
+.timeline {background:#f8eff6}
+.timeline-list {
+  max-width:750px;
+  margin:auto;
+  border-left:2px dashed #d9b7ce;
+  padding-left:30px;
+}
+.timeline-item {
+  position:relative;
+  margin:30px 0;
+  background:white;
+  border-radius:18px;
+  padding:25px;
+  box-shadow:0 7px 25px #927a9010;
+}
+.timeline-item:before {
+  content:'♡';
+  position:absolute;
+  left:-43px;
+  top:23px;
+  background:var(--pink);
+  border-radius:50%;
+  width:25px;height:25px;
+  display:grid;place-items:center;
+}
+.timeline-item h3 {margin:0 0 8px;font-size:22px}
+.timeline-item p {line-height:1.7;font-size:14px;color:#796d80}
+
+/* MEMORY CARDS */
+.memory-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+  max-width:900px;
+  margin:auto;
+}
+.memory-card {
+  background:white;
+  padding:12px 12px 25px;
+  box-shadow:0 8px 25px #70576d15;
+  transform:rotate(-2deg);
+  transition:.3s;
+}
+.memory-card:nth-child(even) {transform:rotate(2deg)}
+.memory-card:hover {transform:rotate(0) translateY(-7px)}
+.illustration {
+  min-height:190px;
+  display:grid;
+  place-items:center;
+  font-size:65px;
+}
+.memory-card p {
+  font:21px 'Caveat',cursive;
+  text-align:center;
+  margin:15px 0 0;
+}
+
+/* OPEN WHEN */
+.open-section {background:#fff4ed}
+.letters {
+  max-width:800px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
+  margin:auto;
+}
+.letter-card {
+  border:1px solid #f1dce5;
+  border-radius:18px;
+  padding:25px;
+  text-align:center;
+  background:white;
+  transition:.3s;
+}
+.letter-card:hover {transform:translateY(-5px)}
+.letter-card button {
+  border:0;
+  background:var(--lavender);
+  padding:12px 20px;
+  border-radius:25px;
+  margin-top:12px;
+  color:var(--ink);
+}
+.letter-message {
+  margin-top:15px;
+  line-height:1.7;
+  font-size:13px;
+  display:none;
+}
+.letter-card.open .letter-message {display:block}
+
+/* QUIZ */
+.game {background:#f2eafa}
+.game-box {
+  background:white;
+  padding:35px;
+  border-radius:25px;
+  max-width:550px;
+  margin:auto;
+  text-align:center;
+  box-shadow:0 10px 40px #8c70951a;
+}
+.answer {
+  display:block;
+  width:100%;
+  padding:14px;
+  margin:10px 0;
+  background:var(--lavender);
+  border:0;
+  border-radius:12px;
+  color:var(--ink);
+}
+.feedback {min-height:40px;margin-top:15px}
+
+/* HUGS */
+.hug-section {
+  text-align:center;
+  background:linear-gradient(130deg,var(--pink),var(--peach));
+}
+.hug-count {font:75px 'Playfair Display',serif;margin:15px}
+.hug-btn {
+  border:0;
+  background:white;
+  border-radius:50%;
+  width:105px;height:105px;
+  font-size:45px;
+  box-shadow:0 5px 20px #b78aa244;
+}
+.hug-btn:active {transform:scale(.9)}
+
+/* FINAL LETTER */
+.letter {
+  max-width:750px;
+  margin:auto;
+  padding:45px;
+  background:white;
+  border-radius:20px;
+  box-shadow:0 10px 40px #8c709510;
+  line-height:2;
+  white-space:pre-line;
+}
+
+/* SECRET ROOM */
+.secret {
+  text-align:center;
+  background:var(--mint);
+}
+.secret-box {
+  max-width:600px;
+  margin:auto;
+  background:white;
+  padding:35px;
+  border-radius:25px;
+}
+.secret-box input {
+  padding:13px;
+  border:1px solid #e4d9e4;
+  border-radius:12px;
+  width:100%;
+  margin-top:15px;
+  text-align:center;
+}
+.secret-result {margin-top:20px;line-height:1.8}
+
+footer {
+  text-align:center;
+  padding:60px 20px;
+  background:var(--lavender);
+  font:24px 'Playfair Display',serif;
+}
+
+.heart {
+  position:fixed;
+  pointer-events:none;
+  z-index:99;
+  animation:rise 2s forwards;
+}
+@keyframes rise {
+  to {transform:translateY(-150px) rotate(40deg);opacity:0}
+}
+
+@media(max-width:600px) {
+  section {padding:65px 5%}
+  .cards {grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .flip-card {height:160px}
+  .letter {padding:25px}
+  .nav {padding:12px 4%}
+  .nav-links {gap:9px}
+  .nav a {font-size:10px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- BIRTHDAY INTRO -->
+<div class="hero" id="birthday">
+  <div class="hero-content">
+    <div class="eyebrow">A little universe made just for you</div>
+    <h1>Happy Birthday,<br><i>Sowkhya.</i></h1>
+    <p>Before entering, close your eyes, make a wish, and blow out your candle.</p>
+
+    <div class="cake">
+      <span class="candle" id="candle">🔥</span>
+      🎂
+    </div>
+
+    <p id="candleText">Your wish is waiting. ♡</p>
+    <button class="btn" id="blowButton" onclick="blowCandle()">
+      Blow the candle ✨
+    </button>
+  </div>
+</div>
+
+<div class="main hidden" id="main">
+
+<nav class="nav">
+  <div class="logo">for sowkhya ♡</div>
+  <div class="nav-links">
+    <a href="#love">Reasons</a>
+    <a href="#timeline">Our story</a>
+    <a href="#letters">Letters</a>
+  </div>
+</nav>
+
+<header class="intro">
+  <div class="eyebrow">To my favourite human</div>
+  <h1>150 little reasons<br>why you're my person.</h1>
+  <p>There are some people who become home without even trying.</p>
+  <p>You're one of those people. ♡</p>
+</header>
+
+<!-- 100 REASONS -->
+<section id="love">
+  <div class="heading">
+    <div class="eyebrow">Chapter one</div>
+    <h2>100 reasons I love you.</h2>
+    <p>Every number hides a little something. Tap to discover it.</p>
+    <div class="progress"><div class="fill" id="loveFill"></div></div>
+    <div class="counter" id="loveCounter">0 / 100 discovered</div>
+  </div>
+  <div class="cards" id="loveCards"></div>
+</section>
+
+<div class="divider">♡ ✦ ♡ ✦ ♡</div>
+
+<!-- 50 REASONS -->
+<section id="proud" style="background:#fff4ed">
+  <div class="heading">
+    <div class="eyebrow">Chapter two</div>
+    <h2>50 reasons I'm proud of you.</h2>
+    <p>For the person you are, and the woman you're becoming.</p>
+    <div class="progress"><div class="fill" id="proudFill"></div></div>
+    <div class="counter" id="proudCounter">0 / 50 discovered</div>
+  </div>
+  <div class="cards" id="proudCards"></div>
+</section>
+
+<!-- FRIENDSHIP TIMELINE -->
+<section class="timeline" id="timeline">
+  <div class="heading">
+    <div class="eyebrow">A story I didn't see coming</div>
+    <h2>How it all happened.</h2>
+    <p>No photographs. Just memories worth keeping.</p>
+  </div>
+
+  <div class="timeline-list">
+    <div class="timeline-item">
+      <h3>01. A random junior.</h3>
+      <p>You were just someone who wanted to attend an event I was planning to go to. Little did I know.</p>
+    </div>
+    <div class="timeline-item">
+      <h3>02. The DevFest bus ride.</h3>
+      <p>A packed bus, two people laughing like maniacs, and probably one very annoyed bus driver.</p>
+    </div>
+    <div class="timeline-item">
+      <h3>03. The little conversations.</h3>
+      <p>We weren't talking every day. Just little conversations whenever we happened to meet.</p>
+    </div>
+    <div class="timeline-item">
+      <h3>04. Somewhere along the way.</h3>
+      <p>Without any grand announcement, we became close. Really close.</p>
+    </div>
+    <div class="timeline-item">
+      <h3>05. My person.</h3>
+      <p>Now a college day without meeting you feels incomplete. And I wouldn't have it any other way.</p>
+    </div>
+  </div>
+</section>
+
+<!-- IMAGINARY PHOTOGRAPHS -->
+<section>
+  <div class="heading">
+    <div class="eyebrow">The photographs we never took</div>
+    <h2>If our memories were pictures...</h2>
+    <p>Some moments deserve a frame even when nobody took a photograph.</p>
+  </div>
+
+  <div class="memory-grid">
+    <div class="memory-card">
+      <div class="illustration pink">🚌💗</div>
+      <p>The bus ride that started everything.</p>
+    </div>
+    <div class="memory-card">
+      <div class="illustration lavender">😂✨</div>
+      <p>Laughing at things nobody else understands.</p>
+    </div>
+    <div class="memory-card">
+      <div class="illustration peach">🫂</div>
+      <p>My favourite place is somewhere inside your hugs.</p>
+    </div>
+    <div class="memory-card">
+      <div class="illustration yellow">☀️🌷</div>
+      <p>Ordinary college mornings made special.</p>
+    </div>
+    <div class="memory-card">
+      <div class="illustration mint">💌</div>
+      <p>All the conversations that lasted longer than planned.</p>
+    </div>
+    <div class="memory-card">
+      <div class="illustration blue">🌙⭐</div>
+      <p>All the memories we haven't made yet.</p>
+    </div>
+  </div>
+</section>
+
+<!-- OPEN WHEN LETTERS -->
+<section class="open-section" id="letters">
+  <div class="heading">
+    <div class="eyebrow">Letters for different versions of you</div>
+    <h2>Open when...</h2>
+    <p>Some words for days when you need them.</p>
+  </div>
+
+  <div class="letters">
+    <div class="letter-card">
+      <h3>🌧️ You're having a bad day</h3>
+      <p>A little reminder...</p>
+      <button onclick="openLetter(this)">Open letter ♡</button>
+      <div class="letter-message">
+        Hey, breathe. Not every day needs to be productive, happy, or perfect. You are allowed to have difficult days. Don't let one bad day convince you that you have a bad life. And remember, you have me. I'll listen to all the yapping.
+      </div>
+    </div>
+
+    <div class="letter-card">
+      <h3>🌷 You doubt yourself</h3>
+      <p>Something you should remember...</p>
+      <button onclick="openLetter(this)">Open letter ♡</button>
+      <div class="letter-message">
+        I wish you could see yourself through my eyes for just a moment. You have so much potential, so much kindness, and so much life ahead of you. Don't underestimate the woman you're becoming.
+      </div>
+    </div>
+
+    <div class="letter-card">
+      <h3>🌍 You achieve something big</h3>
+      <p>For your future self...</p>
+      <button onclick="openLetter(this)">Open letter ♡</button>
+      <div class="letter-message">
+        LOOK AT YOU! I knew you could do it. I hope you celebrate every single milestone. I hope you travel, explore, learn, and become everything you've dreamed of. I'll be ridiculously proud of you.
+      </div>
+    </div>
+
+    <div class="letter-card">
+      <h3>🫂 You miss me</h3>
+      <p>One very important message...</p>
+      <button onclick="openLetter(this)">Open letter ♡</button>
+      <div class="letter-message">
+        Consider this a very long virtual hug. I miss you too, idiot. Now go find me and claim your actual hug. This digital version doesn't count.
+      </div>
+    </div>
+
+    <div class="letter-card">
+      <h3>💗 You forget how loved you are</h3>
+      <p>Please read this...</p>
+      <button onclick="openLetter(this)">Open letter ♡</button>
+      <div class="letter-message">
+        You're loved in ways you might not always notice. You matter to people. You matter to me. And I hope you never feel that you have to earn your place in someone's life.
+      </div>
+    </div>
+
+    <div class="letter-card">
+      <h3>🌙 You can't sleep</h3>
+      <p>A little midnight note...</p>
+      <button onclick="openLetter(this)">Open letter ♡</button>
+      <div class="letter-message">
+        Stop overthinking. Drink some water. Put your phone down eventually. Tomorrow is another day, and you don't need to figure your entire life out tonight. Goodnight, you.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FRIENDSHIP QUIZ -->
+<section class="game" id="games">
+  <div class="heading">
+    <div class="eyebrow">A little memory test</div>
+    <h2>How well do you remember us?</h2>
+  </div>
+  <div class="game-box">
+    <div class="eyebrow" id="quizNumber">QUESTION 1 OF 4</div>
+    <h3 id="question"></h3>
+    <div id="answers"></div>
+    <div class="feedback" id="feedback"></div>
+    <button class="btn hidden" id="nextButton" onclick="nextQuestion()">Next →</button>
+  </div>
+</section>
+
+<!-- HUG COUNTER -->
+<section class="hug-section">
+  <div class="eyebrow">Official friendship statistics</div>
+  <h2>Hugs owed to each other.</h2>
+  <p>One tap = one imaginary hug.</p>
+  <div class="hug-count" id="hugCount">0</div>
+  <button class="hug-btn" onclick="addHug()">🫂</button>
+  <p>Tap whenever you miss a hug. ♡</p>
+</section>
+
+<!-- SECRET ROOM -->
+<section class="secret" id="secret">
+  <div class="heading">
+    <div class="eyebrow">Psst... there's a secret</div>
+    <h2>A little hidden corner.</h2>
+    <p>Only for someone who knows where our story began.</p>
+  </div>
+  <div class="secret-box">
+    <h3>Where did we first go together?</h3>
+    <input id="secretAnswer" placeholder="Enter your answer...">
+    <button class="btn" onclick="unlockSecret()">Unlock my secret ♡</button>
+    <div class="secret-result" id="secretResult"></div>
+  </div>
+</section>
+
+<!-- FINAL LETTER -->
+<section>
+  <div class="heading">
+    <div class="eyebrow">The last page</div>
+    <h2>But 150 reasons still aren't enough.</h2>
+  </div>
+
+  <div class="letter">
+    <h2>Dear Sowkhya,</h2>
+
+    I still think it's funny how a random junior who wanted to attend DevFest ended up becoming one of my favourite people.
+
+    Remember that bus ride? The endless laughter, the packed bus, and how we were laughing like absolute maniacs? I had no idea that day would eventually become such a beautiful beginning.
+
+    Somewhere between those little conversations, random college days, endless yapping sessions and our hugs, you became my person.
+
+    I don't think I can explain how incomplete a college day feels without seeing you. You've become a part of my everyday life in ways I never expected.
+
+    I hope you achieve everything you dream about. I hope you break barriers, explore places, meet wonderful people and become the successful woman you've always wanted to be.
+
+    And when life gets difficult, remember that you have someone who will always be in your corner.
+
+    I hope we never outgrow our hugs, our ridiculous laughter, or the little world we've built.
+
+    You're mine, you know. And I'm very glad I get to call you my person.
+
+    Happy birthday, you. I love you. ♡
+
+    <h2>Always yours,</h2>
+    Your favourite senior. ♡
+  </div>
+</section>
+
+<footer>
+  Made with an unreasonable amount of love.
+  <br><span style="font-size:15px">For Sowkhya, always. ♡</span>
+</footer>
+</div>
+
+<script>
+
+// ===================================
+// 100 REASONS WHY I LOVE YOU
+// ===================================
+
+const loveReasons = [
+"You make ordinary college days worth looking forward to.",
+"That DevFest bus ride will always have a special place in my heart.",
+"You make me laugh until I forget what I was laughing about.",
+"You became my favourite part of the day.",
+"You're effortlessly funny.",
+"You're the person I look forward to seeing at college.",
+"You make ordinary moments feel like memories.",
+"You listen to my endless yapping.",
+"You let me repeat stories without making me feel annoying.",
+"You stay until I forget why I was upset.",
+"You don't need perfect words to make things better.",
+"You make me feel less alone.",
+"You get angry when someone hurts me.",
+"You take my problems personally.",
+"You defend me.",
+"You care more than you realize.",
+"Your hugs feel like home.",
+"I never get tired of hugging you.",
+"Your hugs are something I look forward to.",
+"You make me feel safe being myself.",
+"I love our random conversations.",
+"We can turn anything into a joke.",
+"I love the little moments nobody notices.",
+"We don't need to talk every day to be close.",
+"You make college feel like home.",
+"You're my favourite unexpected friendship.",
+"You make me smile without trying.",
+"You have the kindest heart.",
+"You make people feel seen.",
+"You're thoughtful in ways you don't notice.",
+"You're someone I can count on.",
+"You never make my feelings feel silly.",
+"You let me be dramatic.",
+"You tolerate my nonsense.",
+"You make silence comfortable too.",
+"You're my favourite distraction.",
+"You make bad days less terrible.",
+"You make good days even better.",
+"You make me laugh at the worst possible times.",
+"I love your energy.",
+"I love your little reactions.",
+"I love your expressions.",
+"I love how you get invested in my stories.",
+"I love that you get angry on my behalf.",
+"I love your loyalty.",
+"I love how protective you can be.",
+"I love that I can be ridiculous around you.",
+"I love that I don't have to pretend around you.",
+"I love that we have our own little world.",
+"You became family without needing to.",
+"I love the memories we haven't made yet.",
+"You make me look forward to tomorrow.",
+"I love having you in my everyday routine.",
+"I love how much our friendship means to me.",
+"I love our shared laughter.",
+"I love our unexpected beginning.",
+"I love that we went from random acquaintances to this.",
+"I love how comfortable we have become.",
+"I love your presence.",
+"I love your company.",
+"You make me feel understood.",
+"I love how you show up.",
+"You care about the people you love.",
+"You stand up for people.",
+"I love your honesty.",
+"I love your kindness.",
+"I love your silly side.",
+"I love your serious side too.",
+"I love your enthusiasm.",
+"You make memories without planning them.",
+"I can tell you the most random things.",
+"I miss you even after seeing you yesterday.",
+"I love our little college rituals.",
+"I love having you in my life.",
+"Our friendship feels effortless.",
+"You make me feel included.",
+"You're unapologetically yourself.",
+"You can turn a bad mood around.",
+"You never have to pretend around me.",
+"I love our ridiculous inside jokes.",
+"I love our spontaneous conversations.",
+"You're my favourite junior.",
+"I love being your senior.",
+"I love the person you are.",
+"I love the person you're becoming.",
+"I love your dreams.",
+"I love your determination.",
+"You have so much potential.",
+"I love the way you care.",
+"I love that you're you.",
+"I love that I met you.",
+"I love that one DevFest plan.",
+"I love that one bus ride.",
+"I love every hug after that.",
+"I love every little conversation.",
+"I love every memory we've made.",
+"You're part of my story.",
+"I would still choose you all over again.",
+"Because you're my person. And that's reason enough."
+];
+
+// ===================================
+// 50 REASONS I'M PROUD OF YOU
+// ===================================
+
+const proudReasons = [
+"I'm proud of the person you are.",
+"I'm proud of your kind heart.",
+"I'm proud of how you care for people.",
+"I'm proud of the way you stand up for others.",
+"I'm proud of your courage.",
+"I'm proud of the dreams you carry.",
+"I'm proud of your willingness to grow.",
+"I'm proud of your individuality.",
+"I'm proud of your strength.",
+"I'm proud of how you keep going.",
+"I'm proud of the little things you accomplish.",
+"I'm proud of your ability to make people smile.",
+"I'm proud of your loyalty.",
+"I'm proud of how you make people feel valued.",
+"I'm proud of your determination.",
+"I'm proud of your curiosity.",
+"I'm proud of your willingness to learn.",
+"I'm proud of the boundaries you set.",
+"I'm proud of your voice.",
+"I'm proud of your opinions.",
+"I'm proud of your independence.",
+"I'm proud of the way you show up for people.",
+"I'm proud of your resilience.",
+"I'm proud of your potential.",
+"I'm proud of how much you have to offer.",
+"I'm proud of your ability to laugh.",
+"I'm proud of your honesty.",
+"I'm proud of your generosity.",
+"I'm proud of the way you treat people.",
+"I'm proud of your willingness to try.",
+"I'm proud of your ambitions.",
+"I'm proud of your independence.",
+"I'm proud of your growth.",
+"I'm proud of the person you are becoming.",
+"I'm proud of every difficult day you get through.",
+"I'm proud of every time you choose yourself.",
+"I'm proud of every small victory.",
+"I'm proud of the way you make friendships meaningful.",
+"I'm proud of your beautiful heart.",
+"I'm proud of the happiness you bring to others.",
+"I'm proud of your ability to dream big.",
+"I'm proud of your courage to explore.",
+"I'm proud of your future.",
+"I'm proud of your willingness to change.",
+"I'm proud of your strength even when you don't see it.",
+"I'm proud of the barriers you will break.",
+"I'm proud of the places you will go.",
+"I'm proud of the things you will accomplish.",
+"I'm proud that you never stop becoming.",
+"Most importantly, I'm proud that the world gets to have someone like you in it."
+];
+
+// ===================================
+// CARD GENERATOR
+// ===================================
+
+const palette = ['pink','lavender','peach','yellow','mint','blue'];
+const discovered = {
+  love:new Set(),
+  proud:new Set()
+};
+
+function createCards(reasons, containerId, type) {
+  const container = document.getElementById(containerId);
+
+  reasons.forEach((reason,index) => {
+    const card = document.createElement('div');
+    card.className = 'flip-card';
+
+    card.innerHTML = `
+      <div class="flip-inner">
+        <div class="flip-front ${palette[index % palette.length]}">
+          ${index+1}
+          <small>CLICK TO REVEAL ♡</small>
+        </div>
+        <div class="flip-back">
+          <span>♡</span>
+          ${reason}
+        </div>
+      </div>
+    `;
+
+    card.addEventListener('click', () => {
+      card.classList.toggle('flipped');
+
+      if(card.classList.contains('flipped')) {
+        discovered[type].add(index);
+        hearts(card);
+      } else {
+        discovered[type].delete(index);
+      }
+
+      updateProgress(type);
+    });
+
+    container.appendChild(card);
+  });
+}
+
+function updateProgress(type) {
+  const total = type === 'love' ? 100 : 50;
+  const count = discovered[type].size;
+
+  document.getElementById(type+'Fill').style.width =
+    count / total * 100 + '%';
+
+  document.getElementById(type+'Counter').textContent =
+    `${count} / ${total} discovered`;
+}
+
+createCards(loveReasons,'loveCards','love');
+createCards(proudReasons,'proudCards','proud');
+
+// ===================================
+// CANDLE
+// ===================================
+
+function blowCandle() {
+  const candle = document.getElementById('candle');
+
+  if(candle.textContent === '💨') return;
+
+  candle.textContent = '💨';
+  document.getElementById('candleText').textContent =
+    "Your wish is officially out in the universe. ♡";
+
+  const button = document.getElementById('blowButton');
+  button.textContent = 'Enter your little world ♡';
+  button.onclick = enterWebsite;
+}
+
+function enterWebsite() {
+  document.getElementById('birthday').classList.add('hidden');
+  document.getElementById('main').classList.remove('hidden');
+  window.scrollTo(0,0);
+  hearts(document.body);
+}
+
+// ===================================
+// FLOATING HEARTS
+// ===================================
+
+function hearts(element) {
+  const rect = element.getBoundingClientRect();
+
+  for(let i=0;i<3;i++) {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.textContent = ['♡','💗','✦'][i];
+
+    heart.style.left = rect.left + Math.random()*Math.max(30,rect.width) + 'px';
+    heart.style.top = rect.top + 30 + 'px';
+
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(),2000);
+  }
+}
+
+// ===================================
+// OPEN WHEN LETTERS
+// ===================================
+
+function openLetter(button) {
+  const card = button.closest('.letter-card');
+  card.classList.toggle('open');
+
+  button.textContent = card.classList.contains('open')
+    ? 'Close letter'
+    : 'Open letter ♡';
+}
+
+// ===================================
+// QUIZ
+// ===================================
+
+const quiz = [
+  {
+    q:"Where did our story start getting interesting?",
+    options:["At DevFest","At a library","At a coffee shop"],
+    correct:0,
+    message:"That legendary DevFest bus ride! 😂"
+  },
+  {
+    q:"What were we doing on that bus?",
+    options:["Sleeping","Laughing like maniacs","Studying"],
+    correct:1,
+    message:"The bus driver probably regretted everything. 😭"
+  },
+  {
+    q:"What do we never seem to get tired of?",
+    options:["Arguments","Our hugs","Doing assignments"],
+    correct:1,
+    message:"An unreasonable number of hugs. 🫂"
+  },
+  {
+    q:"What are you to me?",
+    options:["Just a junior","My favourite person","A stranger"],
+    correct:1,
+    message:"Obviously. You're my person. ♡"
+  }
+];
+
+let quizIndex = 0;
+let score = 0;
+let answered = false;
+
+function renderQuiz() {
+  answered = false;
+  const q = quiz[quizIndex];
+
+  document.getElementById('quizNumber').textContent =
+    `QUESTION ${quizIndex+1} OF ${quiz.length}`;
+
+  document.getElementById('question').textContent = q.q;
+  document.getElementById('feedback').textContent = '';
+  document.getElementById('nextButton').classList.add('hidden');
+
+  const box = document.getElementById('answers');
+  box.innerHTML = '';
+
+  q.options.forEach((option,index) => {
+    const button = document.createElement('button');
+    button.className = 'answer';
+    button.textContent = option;
+
+    button.onclick = () => {
+      if(answered) return;
+      answered = true;
+
+      if(index === q.correct) {
+        score++;
+        document.getElementById('feedback').textContent =
+          'Correct! ' + q.message;
+      } else {
+        document.getElementById('feedback').textContent =
+          q.message;
+      }
+
+      document.getElementById('nextButton').classList.remove('hidden');
+      document.getElementById('nextButton').textContent =
+        quizIndex === quiz.length-1 ? 'See my result ♡' : 'Next →';
+    };
+
+    box.appendChild(button);
+  });
+}
+
+function nextQuestion() {
+  quizIndex++;
+
+  if(quizIndex >= quiz.length) {
+    document.getElementById('question').textContent =
+      `You got ${score} out of 4!`;
+
+    document.getElementById('answers').innerHTML =
+      '<p>But the real prize is that we found each other. ♡</p>';
+
+    document.getElementById('quizNumber').textContent =
+      'OUR LITTLE MEMORY TEST';
+
+    document.getElementById('feedback').textContent =
+      'More memories to come.';
+
+    document.getElementById('nextButton').classList.add('hidden');
+    return;
+  }
+
+  renderQuiz();
+}
+
+renderQuiz();
+
+// ===================================
+// HUG COUNTER
+// ===================================
+
+let hugs = 0;
+
+function addHug() {
+  hugs++;
+  document.getElementById('hugCount').textContent = hugs;
+  hearts(document.querySelector('.hug-section'));
+}
+
+// ===================================
+// SECRET ROOM
+// ===================================
+
+function unlockSecret() {
+  const answer = document.getElementById('secretAnswer')
+    .value.trim().toLowerCase();
+
+  const result = document.getElementById('secretResult');
+
+  if(answer === 'devfest') {
+    result.innerHTML = `
+      <h2>YOU FOUND IT! ♡</h2>
+      <p>Remember that random event?</p>
+      <p>I had absolutely no idea that one little plan would introduce me to one of my favourite people.</p>
+      <p>And if I could go back and live that bus ride all over again, I'd do it without hesitation.</p>
+      <h3>You're my person, Sowkhya. Always. 💗</h3>
+    `;
+    hearts(document.querySelector('.secret-box'));
+  } else {
+    result.textContent =
+      "Hmm... think about the beginning of our story. Hint: it was an event! ♡";
+  }
+}
+
+</script>
+</body>
+</html>
